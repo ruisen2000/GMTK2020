@@ -5,6 +5,7 @@ using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.Assertions.Comparers;
 using Object = System.Object;
+using UnityEngine;
 
 public class ReactorCoreSystem : MonoBehaviour {
     
@@ -30,6 +31,14 @@ public class ReactorCoreSystem : MonoBehaviour {
             var rowSpawnPos = new Vector3(colSpawnPosition.x + ( i * (gridWidth/100.0f)),colSpawnPosition.y, colSpawnPosition.z);
             grid.Add(_createColumn(rowSpawnPos));
         }
+
+        foreach (var col in grid) {
+            _assignRandomCoreEmpty(col);
+        }
+    }
+
+    private void _gridMovementSystem() {
+        
     }
 
     private List<GameObject> _createColumn(Vector3 columnSpawnPosition) {
@@ -45,6 +54,16 @@ public class ReactorCoreSystem : MonoBehaviour {
             column.Add(core);
         }
         return column;
+    }
+
+    private void _assignRandomCoreEmpty(List<GameObject> column) {
+        int randomNum = UnityEngine.Random.Range(0, rows);
+        for(int i = 0 ; i < rows; i++) {
+            var reactorCoreObj = column[i];
+            if (i == randomNum) { 
+                reactorCoreObj.GetComponent<ReactorCore>().MIsEmpty = true;
+            }
+        }
     }
 
 
