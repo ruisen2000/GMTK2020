@@ -6,18 +6,22 @@ using UnityEngine;
 using UnityEngine.Assertions.Comparers;
 using Object = System.Object;
 
-public class ReactorCore : MonoBehaviour {
+public class ReactorCoreSystem : MonoBehaviour {
     
-    [SerializeField] private const int rows = 5;
-    [SerializeField] private const int cols = 7;
-    [SerializeField] private const int gridWidth = 80;
-    [SerializeField] private const int gridHeight = 70;
+    private const int rows = 5;
+    private const int cols = 7;
+    private const int gridWidth = 80;
+    private const int gridHeight = 70;
 
     [Header("ReactorCore Prefab")] [SerializeField]
     private GameObject reactorCorePrefab;
 
     [SerializeField] private Transform columnSpawnTransform;
     [SerializeField] private List<List<GameObject>> grid;
+    
+    private void Awake() {
+        _initGridSystem();
+    }
     
     private void _initGridSystem() {
         var colSpawnPosition = columnSpawnTransform.position;
@@ -43,7 +47,5 @@ public class ReactorCore : MonoBehaviour {
         return column;
     }
 
-    private void Awake() {
-        _initGridSystem();
-    }
+
 }

@@ -15,15 +15,8 @@ public class PowerMiniGame : Minigame {
         m_Name = "Power";
     }
 
-    private void FaceMouse() {
-        // Face mouse pointer
-
-
-    }
     private void Awake() {
         InitPowerMiniGame();
     }
-
-
  
 }
