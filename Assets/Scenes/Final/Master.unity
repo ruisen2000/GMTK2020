@@ -506,6 +506,22 @@ PrefabInstance:
       propertyPath: pullDownMenu
       value: 
       objectReference: {fileID: 1173813277}
+    - target: {fileID: 1064119539, guid: 1328cb53c557ded44b0f37e74deacb9b, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.03516674
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064119539, guid: 1328cb53c557ded44b0f37e74deacb9b, type: 3}
+      propertyPath: m_Size.x
+      value: 33.49846
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535386862, guid: 1328cb53c557ded44b0f37e74deacb9b, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.031537056
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535386862, guid: 1328cb53c557ded44b0f37e74deacb9b, type: 3}
+      propertyPath: m_Size.x
+      value: 32.097313
+      objectReference: {fileID: 0}
     - target: {fileID: 605670835688236641, guid: 1328cb53c557ded44b0f37e74deacb9b,
         type: 3}
       propertyPath: m_LocalPosition.x

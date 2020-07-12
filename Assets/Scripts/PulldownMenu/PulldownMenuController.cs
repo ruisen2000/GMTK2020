@@ -45,6 +45,12 @@ public class PulldownMenuController : MonoBehaviour
     void Update()
     {
         UpdateAllStatusButtons();
+
+        if(DataHolder.allData.shipHealth < 0)
+        {
+            QuitGame();
+        }
+
     }
 
     private void UpdateAllStatusButtons()

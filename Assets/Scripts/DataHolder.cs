@@ -20,7 +20,7 @@ public class DataHolder : MonoBehaviour
         }
 
         distanceTravelled = 0;
-        shipHealth = 0;
+        shipHealth = 1.0f;
         engineFuel = 0;
         reactorPower = 0;
     }
