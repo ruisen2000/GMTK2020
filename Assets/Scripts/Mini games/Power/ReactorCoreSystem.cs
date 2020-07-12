@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Collections.LowLevel.Unsafe;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions.Comparers;
-using Object = System.Object;
-using UnityEngine;
-using UnityEngine.PlayerLoop;
+
 
 public class ReactorCoreSystem : MonoBehaviour {
     
@@ -24,13 +18,23 @@ public class ReactorCoreSystem : MonoBehaviour {
 
     [SerializeField] private Transform columnSpawnTransform;
     [SerializeField] private List<GameObject> columnList;
-    
+
+    [SerializeField] private int previousRandomNu = -1;
     private void Awake() {
         _initGridSystem();
     }
 
     private void Update() {
         _gridScrollingSystem();
+    }
+
+    private bool _containsEmptyCore(Transform parent) {
+        foreach (Transform core in parent) {
+            if (core.gameObject.GetComponent<BoxCollider2D>().enabled == true)
+                return false;
+        }
+
+        return true;
     }
     
     private void _initGridSystem() {
@@ -40,10 +44,33 @@ public class ReactorCoreSystem : MonoBehaviour {
             var rowSpawnPos = new Vector3(colSpawnPosition.x + (i * (0.8f)),colSpawnPosition.y, colSpawnPosition.z);
             columnList.Add(_createColumn(rowSpawnPos));
         }
+        _resetColumnEmptyCore();
+
+    }
+
+    private void _resetColumnEmptyCore() {
+        int randomNum = UnityEngine.Random.Range(0, rows);
+        
+        // HACKY code
+        while (randomNum == previousRandomNu) {
+            randomNum = UnityEngine.Random.Range(0, rows);
+        }
+        previousRandomNu = randomNum;
+
         // scope into a system without repeating random numbers
         foreach (var col in columnList) {
-            _assignRandomCoreEmpty(col.transform);
+            Debug.Log("Random Num assign: " + randomNum);
+            _assignRandomCoreEmpty(col.transform,randomNum);
+            while (randomNum == previousRandomNu) {
+                randomNum = UnityEngine.Random.Range(0, rows);
+            }
+            previousRandomNu = randomNum;
         }
+    }
+    
+    private void _assignRandomCoreEmpty(Transform columnParent,int randomNum) {
+        var reactorCoreObj = columnParent.GetChild(randomNum);
+            reactorCoreObj.GetComponent<ReactorCore>().MIsEmpty = true;
     }
 
     private void _gridScrollingSystem() {
@@ -65,6 +92,15 @@ public class ReactorCoreSystem : MonoBehaviour {
             colPos = new Vector3( -(sideScrollBoundsLimit), colPos.y,
                 colPos.z);
             columnParent.position = colPos;
+
+            if (_containsEmptyCore(columnParent)) {
+                int randomNum = UnityEngine.Random.Range(0, rows);
+                while (randomNum == previousRandomNu) {
+                    randomNum = UnityEngine.Random.Range(0, rows);
+                }
+                previousRandomNu = randomNum;
+                _assignRandomCoreEmpty(columnParent,randomNum);
+            }
         }
     }
 
@@ -82,13 +118,5 @@ public class ReactorCoreSystem : MonoBehaviour {
         return columnParent;
     }
 
-    private void _assignRandomCoreEmpty(Transform columnParent) {
-        int randomNum = UnityEngine.Random.Range(0, rows);
-        for(int i = 0 ; i < rows; i++) {
-            var reactorCoreObj = columnParent.GetChild(i);
-            if (i == randomNum) { 
-                reactorCoreObj.GetComponent<ReactorCore>().MIsEmpty = true;
-            }
-        }
-    }
+
 }

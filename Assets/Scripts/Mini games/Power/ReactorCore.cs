@@ -21,6 +21,8 @@ public class ReactorCore : MonoBehaviour {
     public void Activate() {
         if (m_isEmpty == false) {
             coreCompleteSprite.SetActive(true);
+            //Disable collider
+            boxCollider.enabled = false;
         }
     }
 
