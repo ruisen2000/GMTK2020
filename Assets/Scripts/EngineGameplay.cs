@@ -15,7 +15,7 @@ public class EngineGameplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        leftTank.SetTankValue(70);
+        leftTank.SetTankValue(Random.Range(0, 101));
         centerTank.SetTankValue(Random.Range(0, 101));
         rightTank.SetTankValue(Random.Range(0, 101));
     }

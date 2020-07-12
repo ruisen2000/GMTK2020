@@ -11,4 +11,9 @@ public class FuelTank : MonoBehaviour
     {
         slider.value = value;
     }
+
+    public int GetTankValue(int value)
+    {
+        return (int)slider.value;
+    }
 }
