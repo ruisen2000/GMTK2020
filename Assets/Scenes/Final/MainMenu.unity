@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 1545817428}
   - component: {fileID: 1545817427}
   - component: {fileID: 1545817426}
+  - component: {fileID: 1545817429}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -438,6 +439,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1545817429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545817425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a57bb3329e8244da1ae6e613101cc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceTravelled: 0
+  shipHealth: 0
+  engineFuel: 0
+  reactorPower: 0
 --- !u!1 &1736273641
 GameObject:
   m_ObjectHideFlags: 0
