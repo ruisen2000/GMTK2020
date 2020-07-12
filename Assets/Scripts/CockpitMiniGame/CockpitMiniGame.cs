@@ -19,6 +19,9 @@ public class CockpitMiniGame : Minigame
     BoxCollider2D asteroidSpawnArea;
 
     [SerializeReference]
+    BoxCollider2D playerClickArea;
+
+    [SerializeReference]
     CircleCollider2D playerCollider;
 
     [SerializeReference]
@@ -38,6 +41,9 @@ public class CockpitMiniGame : Minigame
     List<UnityEngine.Vector3> wayPoints;
     UnityEngine.Vector3 nextPoint;
     bool nextPointSet;
+
+    [SerializeReference]
+    PulldownMenuController pullDownMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -81,7 +87,7 @@ public class CockpitMiniGame : Minigame
     {
         
 
-        if(Input.GetMouseButtonDown(0) && asteroidPlayArea.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+        if(Input.GetMouseButtonDown(0) && playerClickArea.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)) && !pullDownMenu.menuDown)
         {
             //Add to the end of the list
 
