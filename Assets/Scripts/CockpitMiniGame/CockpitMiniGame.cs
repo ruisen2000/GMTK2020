@@ -42,7 +42,7 @@ public class CockpitMiniGame : Minigame
     UnityEngine.Vector3 nextPoint;
     bool nextPointSet;
 
-    float distanceTravelTotal;
+    public float distanceTravelTotal;
 
     [SerializeReference]
     PulldownMenuController pullDownMenu;
