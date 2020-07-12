@@ -121,6 +121,80 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &311525574
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 268203010143692345, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
+        type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.175
+      objectReference: {fileID: 0}
+    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 268203010143692347, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cdf18b1a938b4d04eb39babb0bbe11d3, type: 3}
 --- !u!1 &407164531
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 880114345}
   - component: {fileID: 880114344}
+  - component: {fileID: 880114346}
   m_Layer: 0
   m_Name: mainMenu
   m_TagString: Untagged
@@ -268,6 +343,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &880114346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880114343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580e2b5534c1d3f4a895a4cfa1288c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1545817425
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,12 +741,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 102900000, guid: 31abfdebf71663543bf5a248891d9104, type: 3}
-        m_MethodName: 
+      - m_Target: {fileID: 880114346}
+        m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

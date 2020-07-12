@@ -19,6 +19,9 @@ public class CockpitMiniGame : Minigame
     BoxCollider2D asteroidSpawnArea;
 
     [SerializeReference]
+    BoxCollider2D playerClickArea;
+
+    [SerializeReference]
     CircleCollider2D playerCollider;
 
     [SerializeReference]
@@ -39,6 +42,11 @@ public class CockpitMiniGame : Minigame
     UnityEngine.Vector3 nextPoint;
     bool nextPointSet;
 
+    float distanceTravelTotal;
+
+    [SerializeReference]
+    PulldownMenuController pullDownMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +56,7 @@ public class CockpitMiniGame : Minigame
         nextPointSet = false;
         moveDirection.x = 0;
         moveDirection.y = 1;
+        distanceTravelTotal = 0.0f;
     }
 
 
@@ -75,13 +84,18 @@ public class CockpitMiniGame : Minigame
 
         updateAsteroids();
         updatePath();
+
+        distanceTravelTotal += moveDirection.y * Time.deltaTime;
+        
+        pullDownMenu.UpdateDistanceTravelled(distanceTravelTotal);
+
     }
 
     private void updatePath()
     {
         
 
-        if(Input.GetMouseButtonDown(0) && asteroidPlayArea.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+        if(Input.GetMouseButtonDown(0) && playerClickArea.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)) && !pullDownMenu.menuDown)
         {
             //Add to the end of the list
 
@@ -101,6 +115,8 @@ public class CockpitMiniGame : Minigame
 
             if (validSpotFound)
             {
+                AudioController.instance.Play("DialClick");
+
                 mHealth = UnityEngine.Vector3.Distance(proposedNewSpot, playerCollider.gameObject.transform.position) ;
                 wayPoints.Add(proposedNewSpot);
             }
@@ -180,6 +196,7 @@ public class CockpitMiniGame : Minigame
                 //We hit a thing!!!
                 //TODO hook up to damage the ship health
                 //@RICHARD-LEE
+                AudioController.instance.Play("DialClick");
 
                 //Also remove it
                 indexToRemove.Add(a);

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,6 +22,8 @@ public class PulldownMenuController : MonoBehaviour
     private Dictionary<Minigame, List<PulldownStatusButton>> GameButtonDict;
     private Animator mAnimator;
 
+    public bool menuDown;
+
     private void Awake()
     {
         InitMinigameButtonDict();
@@ -31,7 +34,7 @@ public class PulldownMenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        menuDown = false;
     }
 
     // Update is called once per frame
@@ -92,10 +95,20 @@ public class PulldownMenuController : MonoBehaviour
     {
         var newBool = !mAnimator.GetBool("Shown");
         mAnimator.SetBool("Shown", newBool);
+
+        if (menuDown)
+        {
+            menuDown = false;
+        }
+        else
+        {
+            menuDown = true;
+        }
+
     }
 
     public void UpdateDistanceTravelled(float distance)
     {
-        DistanceTravelled.text = distance + "km";
+        DistanceTravelled.text = distance.ToString("F2") + "km";
     }
 }
