@@ -109,6 +109,6 @@ public class PulldownMenuController : MonoBehaviour
 
     public void UpdateDistanceTravelled(float distance)
     {
-        DistanceTravelled.text = distance + "km";
+        DistanceTravelled.text = distance.ToString("F2") + "km";
     }
 }
