@@ -32,8 +32,9 @@ public class TurnableWheel : MonoBehaviour
                 }
 
                 float angle = -Vector2.SignedAngle(direction, oldDirection);
+                //Debug.Log("Angle : " + delta);
                 transform.eulerAngles = new Vector3(0, 0, angle + transform.eulerAngles.z);
-                delta += angle;
+                delta -= angle;
             }
             
         }
