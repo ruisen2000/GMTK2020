@@ -502,10 +502,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 222038741, guid: 1328cb53c557ded44b0f37e74deacb9b, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.022922516
-      objectReference: {fileID: 0}
     - target: {fileID: 222038742, guid: 1328cb53c557ded44b0f37e74deacb9b, type: 3}
       propertyPath: pullDownMenu
       value: 
