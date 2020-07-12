@@ -101,6 +101,8 @@ public class CockpitMiniGame : Minigame
 
             if (validSpotFound)
             {
+                AudioController.instance.Play("DialClick");
+
                 mHealth = UnityEngine.Vector3.Distance(proposedNewSpot, playerCollider.gameObject.transform.position) ;
                 wayPoints.Add(proposedNewSpot);
             }
@@ -180,6 +182,7 @@ public class CockpitMiniGame : Minigame
                 //We hit a thing!!!
                 //TODO hook up to damage the ship health
                 //@RICHARD-LEE
+                AudioController.instance.Play("DialClick");
 
                 //Also remove it
                 indexToRemove.Add(a);
