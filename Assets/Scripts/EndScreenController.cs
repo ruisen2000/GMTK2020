@@ -19,6 +19,8 @@ public class EndScreenController : MonoBehaviour
 
     public void ReturnToMain()
     {
+        AudioController.instance.Play("DialClick");
+
         SceneManager.LoadScene("MainMenu");
     }
 }

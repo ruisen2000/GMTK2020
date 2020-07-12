@@ -92,11 +92,15 @@ public class PulldownMenuController : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        AudioController.instance.Play("DialClick");
+
         SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()
     {
+        AudioController.instance.Play("DialClick");
+
         SceneManager.LoadScene("EndScreen");
     }
 
