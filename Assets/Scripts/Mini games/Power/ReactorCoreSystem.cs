@@ -12,6 +12,8 @@ public class ReactorCoreSystem : MonoBehaviour {
 
     [Header("Scrolling System")] [SerializeField][Range(0.0f, 2.0f)]
     private float m_scrollSpeed = 0.5f;
+
+    private bool alternator = true;
     
     [Header("ReactorCore Prefab")] [SerializeField]
     private GameObject reactorCorePrefab;
@@ -59,7 +61,6 @@ public class ReactorCoreSystem : MonoBehaviour {
 
         // scope into a system without repeating random numbers
         foreach (var col in columnList) {
-            Debug.Log("Random Num assign: " + randomNum);
             _assignRandomCoreEmpty(col.transform,randomNum);
             while (randomNum == previousRandomNu) {
                 randomNum = UnityEngine.Random.Range(0, rows);
@@ -69,8 +70,18 @@ public class ReactorCoreSystem : MonoBehaviour {
     }
     
     private void _assignRandomCoreEmpty(Transform columnParent,int randomNum) {
-        var reactorCoreObj = columnParent.GetChild(randomNum);
+        if (alternator == true) {
+            var reactorCoreObj = columnParent.GetChild(randomNum);
             reactorCoreObj.GetComponent<ReactorCore>().MIsEmpty = true;
+
+            alternator = false;
+        }
+        else {
+            alternator = true;
+        }
+
+
+
     }
 
     private void _gridScrollingSystem() {
@@ -81,17 +92,17 @@ public class ReactorCoreSystem : MonoBehaviour {
     }
 
     private void _scrollColumn(Transform columnParent) {
-        var position = columnParent.position;
+        var position = columnParent.localPosition;
         position = new Vector3(position.x + (Time.deltaTime * m_scrollSpeed), position.y,
             position.z);
-        columnParent.position = position;
+        columnParent.localPosition = position;
 
         // replacement system
-        if (columnParent.position.x > sideScrollBoundsLimit + 0.8f) {
-            var colPos = columnParent.position;
+        if (columnParent.localPosition.x > sideScrollBoundsLimit + 0.8f) {
+            var colPos = columnParent.localPosition;
             colPos = new Vector3( -(sideScrollBoundsLimit), colPos.y,
                 colPos.z);
-            columnParent.position = colPos;
+            columnParent.localPosition = colPos;
 
             if (_containsEmptyCore(columnParent)) {
                 int randomNum = UnityEngine.Random.Range(0, rows);

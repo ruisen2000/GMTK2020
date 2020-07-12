@@ -57,6 +57,7 @@ public class CockpitMiniGame : Minigame
         moveDirection.x = 0;
         moveDirection.y = 1;
         distanceTravelTotal = 0.0f;
+        DataHolder.allData.shipHealth = 1.0f;
     }
 
 
@@ -89,6 +90,7 @@ public class CockpitMiniGame : Minigame
         
         pullDownMenu.UpdateDistanceTravelled(distanceTravelTotal);
 
+        asteroidSpeed += asteroidSpeed * 0.01f * Time.deltaTime ;
     }
 
     private void updatePath()
@@ -198,6 +200,8 @@ public class CockpitMiniGame : Minigame
                 //@RICHARD-LEE
                 AudioController.instance.Play("BeepingTrimmed");
 
+                DataHolder.allData.shipHealth -= 0.1f;
+       
                 //Also remove it
                 indexToRemove.Add(a);
                 currentNumberOfAsteroids--;
