@@ -55,7 +55,7 @@ public class EngineGameplay : MonoBehaviour
         { // increase flow out
             float turnPercentage = wheel1 / 360 > 1 ? 10 : 10 * wheel1 / 360;
             tank1Delta = Random.Range(0f, 0.023f) - (TANK_DRAIN_RATE * turnPercentage);
-            Debug.Log("DRAIN RATE : " + TANK_DRAIN_RATE * turnPercentage);
+            //Debug.Log("DRAIN RATE : " + TANK_DRAIN_RATE * turnPercentage);
         }
 
         float wheel2 = centerWheel.getTurn();
@@ -68,7 +68,7 @@ public class EngineGameplay : MonoBehaviour
         {
             float turnPercentage = wheel2 / 360 > 1 ? 10 : 10 * wheel2 / 360;
             tank2Delta = Random.Range(0f, 0.025f) - (TANK_DRAIN_RATE * turnPercentage);
-            Debug.Log("DRAIN RATE : " + TANK_DRAIN_RATE * turnPercentage);
+            //Debug.Log("DRAIN RATE : " + TANK_DRAIN_RATE * turnPercentage);
         }
 
         float wheel3 = rightWheel.getTurn();
