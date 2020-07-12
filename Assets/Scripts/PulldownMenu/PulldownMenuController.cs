@@ -104,6 +104,7 @@ public class PulldownMenuController : MonoBehaviour
     {
         var newBool = !mAnimator.GetBool("Shown");
         mAnimator.SetBool("Shown", newBool);
+        AudioController.instance.Play("ValveTwist");
 
         if (menuDown)
         {
