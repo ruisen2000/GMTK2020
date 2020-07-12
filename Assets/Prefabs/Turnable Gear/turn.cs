@@ -6,16 +6,36 @@ public class turn : MonoBehaviour
 {
     public float speed = 5f;
 
-    private void update()
-    {
+    bool mouseDown = false;
+    Vector2 startPos = Vector2.zero;
+    float delta = 0;
+
+    private void Update()
+    {        
         if (Input.GetMouseButton(0))
         {
-            
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (mouseDown || GetComponent<Collider2D>().OverlapPoint(mousePosition))
+            {
+                Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+                Vector2 oldDirection = startPos;
+                startPos = direction;
 
-            Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
+                if (!mouseDown)
+                {
+                    oldDirection = direction;
+                    mouseDown = true;
+                }
+
+                float angle = -Vector2.SignedAngle(direction, oldDirection);
+                transform.eulerAngles = new Vector3(0, 0, angle + transform.eulerAngles.z);
+                delta += angle;
+            }
+            
+        }
+        else
+        {
+            mouseDown = false;
         }
 
 
