@@ -645,7 +645,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.121738434
+        value: 0.022922516
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -713,4 +713,5 @@ MonoBehaviour:
     type: 3}
   asteroidSpeed: 2
   maxNumberOfAsteroids: 75
+  distanceTravelTotal: 0
   pullDownMenu: {fileID: 0}
