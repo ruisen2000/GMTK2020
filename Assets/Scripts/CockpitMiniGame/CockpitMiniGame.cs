@@ -42,7 +42,7 @@ public class CockpitMiniGame : Minigame
     UnityEngine.Vector3 nextPoint;
     bool nextPointSet;
 
-    float distanceTravelTotal;
+    public float distanceTravelTotal;
 
     [SerializeReference]
     PulldownMenuController pullDownMenu;
@@ -196,7 +196,7 @@ public class CockpitMiniGame : Minigame
                 //We hit a thing!!!
                 //TODO hook up to damage the ship health
                 //@RICHARD-LEE
-                AudioController.instance.Play("DialClick");
+                AudioController.instance.Play("BeepingTrimmed");
 
                 //Also remove it
                 indexToRemove.Add(a);
