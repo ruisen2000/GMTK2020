@@ -41,7 +41,6 @@ public class PulldownMenuController : MonoBehaviour
     void Update()
     {
         UpdateAllStatusButtons();
-        UpdateDistanceTravelled(100f);
     }
 
     private void UpdateAllStatusButtons()
@@ -88,7 +87,7 @@ public class PulldownMenuController : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene("EndScreen");
     }
 
     public void TogglePulldownShow()
