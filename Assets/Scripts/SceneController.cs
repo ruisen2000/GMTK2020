@@ -20,6 +20,8 @@ public class SceneController : MonoBehaviour
 
     public void PlayGame()
     {
+        AudioController.instance.Play("DialClick");
+
         SceneManager.LoadScene("Master");
     }
 }
