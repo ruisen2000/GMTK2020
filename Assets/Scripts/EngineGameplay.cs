@@ -12,11 +12,22 @@ public class EngineGameplay : MonoBehaviour
     public TurnableWheel centerWheel;
     public TurnableWheel rightWheel;
 
-    public int fuelGuage = 0;
+    public float fuelGuage = 0;
 
     private const float TANK_DRAIN_RATE = 0.03f;
 
 
+    bool tankInRange(float tankValue)
+    {
+        if (tankValue < 70 && tankValue > 45)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +88,11 @@ public class EngineGameplay : MonoBehaviour
         leftTank.IncrementTank(tank1Delta);
         centerTank.IncrementTank(tank2Delta);
         rightTank.IncrementTank(tank3Delta);
+
+        if(tankInRange(leftTank.GetTankValue()) && tankInRange(centerTank.GetTankValue()) && tankInRange(rightTank.GetTankValue()))
+        {
+            fuelGuage += 0.01f;
+        }
 
 
     }

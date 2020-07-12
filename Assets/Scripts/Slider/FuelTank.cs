@@ -22,7 +22,7 @@ public class FuelTank : MonoBehaviour
         }           
     }
 
-    public int GetTankValue(int value)
+    public int GetTankValue()
     {
         return (int)slider.value;
     }
