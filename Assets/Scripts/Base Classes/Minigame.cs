@@ -7,7 +7,7 @@ public class Minigame : MonoBehaviour
     [SerializeField]
     protected string m_Name;
 
-    private float mHealth;
+    protected float mHealth;
     public float Health { get { return mHealth; } }
 
     // Start is called before the first frame update

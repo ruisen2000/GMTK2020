@@ -66,8 +66,12 @@ public class CockpitMiniGame : Minigame
                 moveDirection *= -1;
             }
 
-        }
+            if(moveDirection.y < 0.01f)
+            {
+                moveDirection.y = 0.4f;
+            }
 
+        }
 
         updateAsteroids();
         updatePath();
@@ -97,6 +101,7 @@ public class CockpitMiniGame : Minigame
 
             if (validSpotFound)
             {
+                mHealth = UnityEngine.Vector3.Distance(proposedNewSpot, playerCollider.gameObject.transform.position) ;
                 wayPoints.Add(proposedNewSpot);
             }
 
@@ -108,8 +113,9 @@ public class CockpitMiniGame : Minigame
             List<UnityEngine.Vector2> spotsToRemove = new List<UnityEngine.Vector2>();
 
 
-            nextPoint = nextPoint - (UnityEngine.Vector3)moveDirection * asteroidSpeed * Time.deltaTime;
-
+            nextPoint = nextPoint - (UnityEngine.Vector3)moveDirection * Time.deltaTime;
+            mHealth = mHealth - moveDirection.y * asteroidSpeed * Time.deltaTime;
+           
             for (int i = 0; i < wayPoints.Count;i++)
             {
 
@@ -131,6 +137,7 @@ public class CockpitMiniGame : Minigame
             else
             {
                 nextPointSet = false;
+                mHealth = 0.0f;
             }
 
 
@@ -150,14 +157,6 @@ public class CockpitMiniGame : Minigame
             }
 
         }
-
-        //Check if we added a new point
-        //Check if the new point is in a valid spot (in the play area and above all other points)
-        //Check if any points are no longer in the play area
-        //Remove any points no longer in the play area
-
-        //Transfer all data to line renderer
-
 
     }
 
@@ -181,6 +180,10 @@ public class CockpitMiniGame : Minigame
                 //We hit a thing!!!
                 //TODO hook up to damage the ship health
                 //@RICHARD-LEE
+
+                //Also remove it
+                indexToRemove.Add(a);
+                currentNumberOfAsteroids--;
             }
 
             if (!a.col.IsTouching(asteroidPlayArea))
