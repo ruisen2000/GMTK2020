@@ -91,7 +91,11 @@ public class EngineGameplay : MonoBehaviour
 
         if(tankInRange(leftTank.GetTankValue()) && tankInRange(centerTank.GetTankValue()) && tankInRange(rightTank.GetTankValue()))
         {
-            fuelGuage += 0.01f;
+            fuelGuage += 0.02f;
+        }
+        else
+        {
+            fuelGuage -= Random.Range(0f, 0.02f);
         }
 
 
