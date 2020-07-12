@@ -140,19 +140,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Name: 
-  m_FuelRod: {fileID: 0}
-  m_ReactorCore: {fileID: 0}
 --- !u!224 &322926324 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 616888954564663049, guid: da6474853cd8089469de5328ed469d61,
     type: 3}
   m_PrefabInstance: {fileID: 616888954277274109}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &813813147 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5707377202181386394, guid: 04abcc8c3b39048279082616f978927c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2048663005}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1384882300
 GameObject:
@@ -560,16 +552,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3390498904812438811, guid: 04abcc8c3b39048279082616f978927c,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3390498904812438811, guid: 04abcc8c3b39048279082616f978927c,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.34901962
-      objectReference: {fileID: 0}
     - target: {fileID: 5454041328594969056, guid: 04abcc8c3b39048279082616f978927c,
         type: 3}
       propertyPath: m_Name
@@ -577,16 +559,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7321127544187805680, guid: 04abcc8c3b39048279082616f978927c,
         type: 3}
-      propertyPath: columnSpawnTransform
-      value: 
-      objectReference: {fileID: 813813147}
-    - target: {fileID: 8724399158206240411, guid: 04abcc8c3b39048279082616f978927c,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
+      propertyPath: m_scrollSpeed
+      value: 0.57
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9145506987133259640, guid: 04abcc8c3b39048279082616f978927c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04abcc8c3b39048279082616f978927c, type: 3}
 --- !u!1001 &616888954277274109
 PrefabInstance:
@@ -783,6 +759,26 @@ PrefabInstance:
     - target: {fileID: 944055948866095620, guid: da6474853cd8089469de5328ed469d61,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119919946183866216, guid: da6474853cd8089469de5328ed469d61,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119919946183866216, guid: da6474853cd8089469de5328ed469d61,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119919946183866216, guid: da6474853cd8089469de5328ed469d61,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119919946183866216, guid: da6474853cd8089469de5328ed469d61,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1211928459054359425, guid: da6474853cd8089469de5328ed469d61,
