@@ -23,8 +23,9 @@ public class EnergyMeter : MonoBehaviour {
         FuelRod.OnFuelRodInsertEvent -= IncreaseEnergy;
     }
 
-    private void IncreaseEnergy() {
-        energyLevel += 0.08f;
+    private void IncreaseEnergy(bool success) {
+        if(success)
+            energyLevel += 0.15f;
     }
     
     void Update() {
