@@ -7,8 +7,7 @@ public class ReactorCore : MonoBehaviour {
     
     private bool m_isEmpty;
 
-    [SerializeField] private Color _tempEmptyColor = new Color(0f, 0f, 0f, 0f);
-
+    [SerializeField] private GameObject coreCompleteSprite;
     public bool MIsEmpty {
         get => m_isEmpty;
         set => m_isEmpty = value;
@@ -16,7 +15,7 @@ public class ReactorCore : MonoBehaviour {
 
     void Update() {
         if (m_isEmpty) {
-            GetComponent<SpriteRenderer>().color = _tempEmptyColor;
+            coreCompleteSprite.SetActive(false);
         }
     }
 }
