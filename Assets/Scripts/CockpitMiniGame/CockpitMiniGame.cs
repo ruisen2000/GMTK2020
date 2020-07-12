@@ -6,13 +6,14 @@ using UnityEngine;
 
 public class CockpitMiniGame : Minigame
 {
+
+
+
     LineRenderer path;
     List<Asteroid> asteroids;
 
-    UnityEngine.Vector3 nextPoint;
-
     [SerializeReference]
-    BoxCollider2D playArea;
+    BoxCollider2D asteroidPlayArea;
 
     [SerializeReference]
     BoxCollider2D asteroidSpawnArea;
@@ -32,27 +33,137 @@ public class CockpitMiniGame : Minigame
 
     int currentNumberOfAsteroids = 0;
 
+    UnityEngine.Vector2 moveDirection;
+
+    List<UnityEngine.Vector3> wayPoints;
+    UnityEngine.Vector3 nextPoint;
+    bool nextPointSet;
+
     // Start is called before the first frame update
     void Start()
     {
         path = GetComponent<LineRenderer>();
         asteroids = new List<Asteroid>();
+        wayPoints = new List<UnityEngine.Vector3>();
+        nextPointSet = false;
+        moveDirection.x = 0;
+        moveDirection.y = 1;
     }
 
 
     // Update is called once per frame
     void Update()
     {
+
+
+        if (nextPointSet)
+        {
+            moveDirection = nextPoint - playerCollider.gameObject.transform.position;
+            moveDirection.Normalize();
+            
+            if(moveDirection.y < 0)
+            {
+                moveDirection *= -1;
+            }
+
+        }
+
+
         updateAsteroids();
+        updatePath();
+    }
+
+    private void updatePath()
+    {
+        
+
+        if(Input.GetMouseButtonDown(0) && asteroidPlayArea.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+        {
+            //Add to the end of the list
+
+            UnityEngine.Vector2 proposedNewSpot = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+         
+            bool validSpotFound = true;
+            foreach(UnityEngine.Vector2 point in wayPoints)
+            {
+                if(point.y > proposedNewSpot.y)
+                {
+                    validSpotFound = false;
+                    break;
+                }
+
+            }
+
+            if (validSpotFound)
+            {
+                wayPoints.Add(proposedNewSpot);
+            }
+
+
+        }
+        else
+        {
+
+            List<UnityEngine.Vector2> spotsToRemove = new List<UnityEngine.Vector2>();
+
+
+            nextPoint = nextPoint - (UnityEngine.Vector3)moveDirection * asteroidSpeed * Time.deltaTime;
+
+            for (int i = 0; i < wayPoints.Count;i++)
+            {
+
+                wayPoints[i] = wayPoints[i] - (UnityEngine.Vector3)moveDirection * asteroidSpeed * Time.deltaTime;
+
+                if (wayPoints[i].y <= playerCollider.gameObject.transform.position.y)
+                {
+                    spotsToRemove.Add(wayPoints[i]);
+                }
+        
+           
+            }
+
+            if(wayPoints.Count > 0)
+            {
+                nextPoint = wayPoints[0];
+                nextPointSet = true;
+            }
+            else
+            {
+                nextPointSet = false;
+            }
+
+
+            foreach (UnityEngine.Vector2 toRemove in spotsToRemove)
+            {
+                wayPoints.Remove(toRemove);
+            }
+
+          
+
+            path.positionCount = wayPoints.Count + 1;
+            path.SetPosition(0, playerCollider.gameObject.transform.position);
+
+            for (int i = 0; i < wayPoints.Count; i++)
+            {
+                path.SetPosition(i+1, new UnityEngine.Vector3(wayPoints[i].x,wayPoints[i].y,-0.5f));
+            }
+
+        }
+
+        //Check if we added a new point
+        //Check if the new point is in a valid spot (in the play area and above all other points)
+        //Check if any points are no longer in the play area
+        //Remove any points no longer in the play area
+
+        //Transfer all data to line renderer
+
+
     }
 
     private void updateAsteroids()
     {
 
-        UnityEngine.Vector3 direction = nextPoint - transform.position;
-        direction.x = 0;
-        direction.y = 1;
-        direction.Normalize();
 
         List<Asteroid> indexToRemove = new List<Asteroid>();
 
@@ -63,7 +174,7 @@ public class CockpitMiniGame : Minigame
         foreach(Asteroid a in asteroids)
         {
             
-           a.transform.position = a.transform.position - direction * asteroidSpeed * Time.deltaTime;
+           a.transform.position = (UnityEngine.Vector2)a.transform.position - moveDirection * asteroidSpeed * Time.deltaTime;
 
             if (a.col.IsTouching(playerCollider))
             {
@@ -72,7 +183,7 @@ public class CockpitMiniGame : Minigame
                 //@RICHARD-LEE
             }
 
-            if (!a.col.IsTouching(playArea))
+            if (!a.col.IsTouching(asteroidPlayArea))
             {
                 //Remove the asteroid
                 indexToRemove.Add(a);
