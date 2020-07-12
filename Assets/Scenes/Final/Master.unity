@@ -139,12 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9934531ac56f6d147a0ed282a87b4b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1260490941 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1545658663}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1384882300
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,80 +284,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1260490941}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1545658663
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1404709711}
-    m_Modifications:
-    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 268203010143692346, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 268203010143692347, guid: cdf18b1a938b4d04eb39babb0bbe11d3,
-        type: 3}
-      propertyPath: m_Name
-      value: AudioController
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cdf18b1a938b4d04eb39babb0bbe11d3, type: 3}
 --- !u!114 &1592836857 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 222038742, guid: 1328cb53c557ded44b0f37e74deacb9b,
@@ -651,6 +575,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1942729607}
     m_Modifications:
+    - target: {fileID: 247466087309007036, guid: da6474853cd8089469de5328ed469d61,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.29101562
+      objectReference: {fileID: 0}
     - target: {fileID: 616888954564663049, guid: da6474853cd8089469de5328ed469d61,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -790,6 +719,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 462.4887
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332153317708182354, guid: da6474853cd8089469de5328ed469d61,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 162.09961
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da6474853cd8089469de5328ed469d61, type: 3}
