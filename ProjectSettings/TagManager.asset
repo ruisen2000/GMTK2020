@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: background 2
+    uniqueID: 575246767
+    locked: 0
+  - name: Pipes
+    uniqueID: 1544390033
+    locked: 0
+  - name: Clock
+    uniqueID: 3785826481
+    locked: 0
+  - name: tanks
+    uniqueID: 804198143
+    locked: 0
