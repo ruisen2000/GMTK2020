@@ -42,6 +42,8 @@ public class CockpitMiniGame : Minigame
     UnityEngine.Vector3 nextPoint;
     bool nextPointSet;
 
+    float distanceTravelTotal;
+
     [SerializeReference]
     PulldownMenuController pullDownMenu;
 
@@ -54,6 +56,7 @@ public class CockpitMiniGame : Minigame
         nextPointSet = false;
         moveDirection.x = 0;
         moveDirection.y = 1;
+        distanceTravelTotal = 0.0f;
     }
 
 
@@ -81,6 +84,11 @@ public class CockpitMiniGame : Minigame
 
         updateAsteroids();
         updatePath();
+
+        distanceTravelTotal += moveDirection.y * Time.deltaTime;
+        
+        pullDownMenu.UpdateDistanceTravelled(distanceTravelTotal);
+
     }
 
     private void updatePath()
