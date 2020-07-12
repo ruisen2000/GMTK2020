@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PulldownMenuController : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class PulldownMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateAllStatusButtons();
     }
 
     private void UpdateAllStatusButtons()
@@ -66,5 +67,15 @@ public class PulldownMenuController : MonoBehaviour
 
             GameButtonDict.Add(minigame, buttonList);
         }
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
