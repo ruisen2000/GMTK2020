@@ -43,7 +43,7 @@ public class PulldownStatusButton : MonoBehaviour
             m_PercentageText.text = "" + ((int) percentage) + "%";
         }
 
-        Vector3 newScale = new Vector3(1, (percentage) / 100f, 1);
+        Vector3 newScale = new Vector3(1, (percentage) / 1f, 1);
         m_ButtonFill.transform.localScale = newScale;
     }
 }
