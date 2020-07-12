@@ -27,6 +27,10 @@ public class PulldownMenuController : MonoBehaviour
     private void Awake()
     {
         InitMinigameButtonDict();
+        if (DataHolder.allData == null)
+        {
+            DataHolder.allData = new DataHolder();
+        }
         mAnimator = GetComponentInChildren<Animator>();
     }
 
