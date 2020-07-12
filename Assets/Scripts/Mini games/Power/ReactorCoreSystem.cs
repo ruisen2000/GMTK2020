@@ -92,17 +92,17 @@ public class ReactorCoreSystem : MonoBehaviour {
     }
 
     private void _scrollColumn(Transform columnParent) {
-        var position = columnParent.position;
+        var position = columnParent.localPosition;
         position = new Vector3(position.x + (Time.deltaTime * m_scrollSpeed), position.y,
             position.z);
-        columnParent.position = position;
+        columnParent.localPosition = position;
 
         // replacement system
-        if (columnParent.position.x > sideScrollBoundsLimit + 0.8f) {
-            var colPos = columnParent.position;
+        if (columnParent.localPosition.x > sideScrollBoundsLimit + 0.8f) {
+            var colPos = columnParent.localPosition;
             colPos = new Vector3( -(sideScrollBoundsLimit), colPos.y,
                 colPos.z);
-            columnParent.position = colPos;
+            columnParent.localPosition = colPos;
 
             if (_containsEmptyCore(columnParent)) {
                 int randomNum = UnityEngine.Random.Range(0, rows);
