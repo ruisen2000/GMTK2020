@@ -7,8 +7,6 @@ public class FuelRodLaunchSystem : MonoBehaviour {
 
     [SerializeField] private GameObject fuelRodPrefab;
     [SerializeField] private Transform fuelRodHolder;
-    
-
     private void OnEnable() {
         FuelRod.OnFuelRodInsertEvent += OnFuelRodInsertSuccess;
     }
