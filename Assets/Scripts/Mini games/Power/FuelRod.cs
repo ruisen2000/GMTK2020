@@ -7,8 +7,14 @@ using UnityEngine;
 public class FuelRod : MonoBehaviour {
     [SerializeField] private float speed = 0.5f;
     private bool shouldLaunch = false;
-    public delegate void OnFuelRodInsert();
+
+    [SerializeField] private Transform outOfBoundsT;
+    public delegate void OnFuelRodInsert(bool success);
     public static event OnFuelRodInsert OnFuelRodInsertEvent;
+
+    private void Awake() {
+        outOfBoundsT = GameObject.FindGameObjectWithTag("OutOfBounds").transform;
+    }
 
     private void Start() {
         shouldLaunch = false;
@@ -35,7 +41,6 @@ public class FuelRod : MonoBehaviour {
     
 
     private void OnEnable() {
-        Debug.Log("Fuel Rod created!");
         LevelInputHandler.OnLeverReleased += LaunchFuelRod;
         OnFuelRodInsertEvent += DestroythisRod;
         ChangeHandlersOrdering();
@@ -46,7 +51,7 @@ public class FuelRod : MonoBehaviour {
         OnFuelRodInsertEvent -= DestroythisRod;
     }
 
-    private void DestroythisRod() {
+    private void DestroythisRod(bool success) {
         Destroy(this.gameObject, 0);
     }
 
@@ -60,8 +65,6 @@ public class FuelRod : MonoBehaviour {
         int collidersHitCount = 0;
         for (int i = -3; i <=3; i++) {
             var position = new Vector3((i * 0.1f) + transform.position.x, transform.position.y, transform.position.z);
-            Debug.DrawLine(position, new Vector3(position.x, position.y + checkLength, position.z), Color.cyan, Time.deltaTime,
-                false);
             RaycastHit2D hit = Physics2D.Raycast(position, Vector2.up, checkLength);
             if (hit.collider != null) {
                 collidersHitCount++;
@@ -77,7 +80,12 @@ public class FuelRod : MonoBehaviour {
     void FixedUpdate() {
         if (_customColliderCheck()) {
             if (OnFuelRodInsertEvent != null) {
-                OnFuelRodInsertEvent();
+                OnFuelRodInsertEvent(true);
+            }
+        }
+        if (transform.position.y >= outOfBoundsT.transform.position.y) {
+            if (OnFuelRodInsertEvent != null) {
+                OnFuelRodInsertEvent(false);
             }
         }
     }

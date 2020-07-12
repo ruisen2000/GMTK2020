@@ -15,7 +15,7 @@ public class FuelRodLaunchSystem : MonoBehaviour {
         FuelRod.OnFuelRodInsertEvent -= OnFuelRodInsertSuccess;
     }
     
-    void OnFuelRodInsertSuccess() {
+    void OnFuelRodInsertSuccess(bool success) {
         var position = fuelRodHolder.position;
         var newSpawnPos = new Vector3(position.x,position.y + 0.73f, position.z);
         Instantiate(fuelRodPrefab, newSpawnPos, Quaternion.identity, fuelRodHolder);
