@@ -5,7 +5,7 @@ using UnityEngine;
 public class Minigame : MonoBehaviour
 {
     [SerializeField]
-    protected string m_Name;
+    protected string m_MiniGameName;
 
     protected float mHealth;
     public float Health { get { return mHealth; } }
