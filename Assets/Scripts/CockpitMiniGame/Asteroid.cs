@@ -27,7 +27,7 @@ public class Asteroid : MonoBehaviour
 
     [SerializeField]
     float rotationRateMax = 0;
-
+    
 
     float rotationRate = 0;
 

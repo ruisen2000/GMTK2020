@@ -311,8 +311,8 @@ MonoBehaviour:
   playerCollider: {fileID: 478063847}
   asteroidPrefab: {fileID: 4438853930292344827, guid: e911c18445dc80c42aeead5ebdc6e35d,
     type: 3}
-  asteroidSpeed: 0.1
-  maxNumberOfAsteroids: 10
+  asteroidSpeed: 1
+  maxNumberOfAsteroids: 50
 --- !u!4 &222038743 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 605670835688236641, guid: 1328cb53c557ded44b0f37e74deacb9b,
@@ -389,7 +389,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b7cec59fdebe7fa4db61055091a74c27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -567,7 +567,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f3972b68ae766814d81e7f939bf6ee51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -810,7 +810,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 8b92c5fa79e32ce4d8127d6ce674dcb3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
