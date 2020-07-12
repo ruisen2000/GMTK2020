@@ -24,6 +24,8 @@ public class PulldownStatusButton : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI m_PercentageText;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,4 +48,6 @@ public class PulldownStatusButton : MonoBehaviour
         Vector3 newScale = new Vector3(1, (percentage) / 1f, 1);
         m_ButtonFill.transform.localScale = newScale;
     }
+
+
 }

@@ -127,31 +127,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 616888954277274109}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1005675241 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 616888954564663054, guid: da6474853cd8089469de5328ed469d61,
-    type: 3}
-  m_PrefabInstance: {fileID: 616888954277274109}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1005675242
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1005675241}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: efdc6c048cbef9f49ba11cbb65b1189d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1384882300
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +246,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 214.74615
+  orthographic size: 7.069077
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -295,12 +270,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404709708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1592836857 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 222038742, guid: 1328cb53c557ded44b0f37e74deacb9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 201493417528477955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686c50c5336967c4198c630d83c4f176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1844332797
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,12 +493,12 @@ PrefabInstance:
     - target: {fileID: 605670835688236641, guid: 1328cb53c557ded44b0f37e74deacb9b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 960
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 605670835688236641, guid: 1328cb53c557ded44b0f37e74deacb9b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1619.9863
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 605670835688236641, guid: 1328cb53c557ded44b0f37e74deacb9b,
         type: 3}
@@ -681,6 +668,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HUD_PulldownMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733000493668765906, guid: da6474853cd8089469de5328ed469d61,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.4600067
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733000493668765906, guid: da6474853cd8089469de5328ed469d61,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 183
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475365140252503918, guid: da6474853cd8089469de5328ed469d61,
+        type: 3}
+      propertyPath: m_MinigameScripts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475365140252503918, guid: da6474853cd8089469de5328ed469d61,
+        type: 3}
+      propertyPath: m_MinigameScripts.Array.data[0]
+      value: 
+      objectReference: {fileID: 1592836857}
+    - target: {fileID: 2656783277957271317, guid: da6474853cd8089469de5328ed469d61,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 157
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656783277957271317, guid: da6474853cd8089469de5328ed469d61,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 462.4887
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da6474853cd8089469de5328ed469d61, type: 3}

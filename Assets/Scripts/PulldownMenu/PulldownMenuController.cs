@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PulldownMenuController : MonoBehaviour
 {
+    [SerializeField]
+    private Text DistanceTravelled; 
+
+
     [SerializeField]
     private PulldownStatusButton[] m_MainStatusButtons;
     [SerializeField]
@@ -12,11 +17,14 @@ public class PulldownMenuController : MonoBehaviour
     [SerializeField]
     private Minigame[] m_MinigameScripts;
 
+
     private Dictionary<Minigame, List<PulldownStatusButton>> GameButtonDict;
+    private Animator mAnimator;
 
     private void Awake()
     {
         InitMinigameButtonDict();
+        mAnimator = GetComponentInChildren<Animator>();
     }
 
 
@@ -30,6 +38,7 @@ public class PulldownMenuController : MonoBehaviour
     void Update()
     {
         UpdateAllStatusButtons();
+        UpdateDistanceTravelled(100f);
     }
 
     private void UpdateAllStatusButtons()
@@ -77,5 +86,16 @@ public class PulldownMenuController : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void TogglePulldownShow()
+    {
+        var newBool = !mAnimator.GetBool("Shown");
+        mAnimator.SetBool("Shown", newBool);
+    }
+
+    public void UpdateDistanceTravelled(float distance)
+    {
+        DistanceTravelled.text = distance + "km";
     }
 }
