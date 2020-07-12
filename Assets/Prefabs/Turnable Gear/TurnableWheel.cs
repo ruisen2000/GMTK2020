@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class turn : MonoBehaviour
+public class TurnableWheel : MonoBehaviour
 {
-    public float speed = 5f;
+    private bool mouseDown = false;
+    private Vector2 startPos = Vector2.zero;
+    private float delta = 0;
 
-    bool mouseDown = false;
-    Vector2 startPos = Vector2.zero;
-    float delta = 0;
+    // returns amount that wheel has been turned by
+    public float getTurn()
+    {
+        return delta;
+    }
 
     private void Update()
     {        

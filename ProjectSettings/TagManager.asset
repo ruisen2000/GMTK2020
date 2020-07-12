@@ -53,3 +53,6 @@ TagManager:
   - name: tanks
     uniqueID: 804198143
     locked: 0
+  - name: TankLiquid
+    uniqueID: 2246534293
+    locked: 0
